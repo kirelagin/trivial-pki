@@ -27,8 +27,7 @@ fi
 
 if [ ! -s "$server_crt" ]; then
   echo "Generating server certificate and writing it to '$server_crt'."
-  openssl req -new -key "$server_key" -out "$server_csr" -config "openssl.cnf" -subj "/CN=OpenVPN Server"
-  openssl ca -batch -notext -in "$server_csr" -out "$server_crt" -extensions "server_extensions" -config "openssl.cnf"
-  rm -f "$server_csr"
+  req=$(openssl req -new -key "$server_key" -config "openssl.cnf" -subj "/CN=OpenVPN Server")
+  openssl ca -batch -notext -in <(echo "$req") -out "$server_crt" -extensions "server_extensions" -config "openssl.cnf"
   echo ""
 fi
