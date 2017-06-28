@@ -16,11 +16,10 @@ certificate             = $dir/ca.crt
 default_days            = 3650
 new_certs_dir           = $HOME/certs
 policy                  = policy
-extensions              = cert_extensions
 copy_extensions         = none
 
 name_opt                = ca_default
-cert_opt                = ca_default
+cert_opt                = ca_default,no_validity,no_extensions
 
 ;default_crl_days        = ??
 

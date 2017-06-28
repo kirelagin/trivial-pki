@@ -20,5 +20,8 @@ Issuing client certificates
 * Send `setup.sh` from the `client` directory to the user.
 * Tell them to run `./setup.sh`.
 * Ask them to send you the certificate request that they’ve got on their screen.
+* Execute `sign.sh` from the `server` directory.
+* Paste the certificate request.
+* Check the request details and confirm certification.
 * ??? TBD
 * PROFIT
