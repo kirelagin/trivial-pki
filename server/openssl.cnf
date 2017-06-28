@@ -1,20 +1,19 @@
-HOME            = .
-RANDFILE        = $HOME/.rnd
+RANDFILE        = $ENV::home/.rnd
 
 [ ca ]
 default_ca = CA_default
 
 [ CA_default ]
-dir                     = $HOME/ca
-database                = $dir/index.txt
+dir                     = $ENV::ca_home
+database                = $ENV::database
 unique_subject          = yes
-serial                  = $dir/serial
+serial                  = $ENV::serial
 default_md              = sha256
-private_key             = $dir/ca.key
-certificate             = $dir/ca.crt
+private_key             = $ENV::ca_key
+certificate             = $ENV::ca_crt
 
 default_days            = 3650
-new_certs_dir           = $HOME/certs
+new_certs_dir           = $ENV::certs_dir
 policy                  = policy
 copy_extensions         = none
 

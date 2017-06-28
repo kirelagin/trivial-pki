@@ -1,17 +1,17 @@
-home=.
-certs_dir="$home/certs"
+export home=.
+export certs_dir="$home/certs"
 
-ca_home="$home/ca"
-database="$ca_home/index.txt"
-serial="$ca_home/serial"
-
-
-ca_key="$ca_home/ca.key"
-ca_crt="$ca_home/ca.crt"
-
-server_key="$home/server.key"
-server_crt="$home/server.crt"
+export ca_home="$home/ca"
+export database="$ca_home/index.txt"
+export serial="$ca_home/serial"
 
 
-ca_commonName="OpenVPN CA"
-server_commonName="OpenVPN Server"
+export ca_key="$ca_home/ca.key"
+export ca_crt="$ca_home/ca.crt"
+
+export server_key="$home/server.key"
+export server_crt="$home/server.crt"
+
+
+export ca_commonName="OpenVPN CA"
+export server_commonName="OpenVPN Server"
