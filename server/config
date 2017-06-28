@@ -11,3 +11,7 @@ ca_crt="$ca_home/ca.crt"
 
 server_key="$home/server.key"
 server_crt="$home/server.crt"
+
+
+ca_commonName="OpenVPN CA"
+server_commonName="OpenVPN Server"
