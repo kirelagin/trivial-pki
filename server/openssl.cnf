@@ -1,0 +1,58 @@
+HOME            = .
+RANDFILE        = $HOME/.rnd
+
+[ ca ]
+default_ca = CA_default
+
+[ CA_default ]
+dir                     = $HOME/ca
+database                = $dir/index.txt
+unique_subject          = yes
+serial                  = $dir/serial
+default_md              = sha256
+private_key             = $dir/ca.key
+certificate             = $dir/ca.crt
+
+default_days            = 3650
+new_certs_dir           = $HOME/certs
+policy                  = policy
+extensions              = cert_extensions
+copy_extensions         = none
+
+name_opt                = ca_default
+cert_opt                = ca_default
+
+;default_crl_days        = ??
+
+[ policy ]
+commonName = supplied
+
+[ ca_extensions ]
+basicConstraints        = CA:TRUE
+subjectKeyIdentifier    = hash
+authorityKeyIdentifier  = keyid:always,issuer:always
+
+[ server_extensions ]
+basicConstraints        = CA:FALSE
+keyUsage                = digitalSignature,keyAgreement
+extendedKeyUsage        = serverAuth
+subjectKeyIdentifier    = hash
+authorityKeyIdentifier  = keyid,issuer:always
+
+[ cert_extensions ]
+basicConstraints        = CA:FALSE
+keyUsage                = digitalSignature,keyAgreement
+extendedKeyUsage        = clientAuth
+subjectKeyIdentifier    = hash
+authorityKeyIdentifier  = keyid,issuer:always
+
+
+[ req ]
+default_md            = sha256
+string_mask           = utf8only
+utf8                  = yes
+distinguished_name    = no_distinguished_name
+prompt                = yes
+
+[ no_distinguished_name ]
+commonName = Common Name
