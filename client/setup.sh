@@ -16,6 +16,7 @@ else
   if [ ! -f "$key" ]; then
     echo "Generating private key and writing in to '$key'."
     openssl ecparam -name prime256v1 -noout -genkey -out "$key"
+    chmod 400 "$key"
     echo ""
   fi
 
